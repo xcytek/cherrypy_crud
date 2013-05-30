@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{{ title }}</title>
+<style type="text/css">
+    {{ style }}
+</style>
+
+</head>
+<body>
+	<nav>
+    	<ul>
+        	<li><a href="/">Inicio</a></li>                    	            
+        </ul>
+    </nav>
+    <header>Tutorial CRUD CherryPy</header>
+	<section id="parrafo">
+    	<form action="/{{ do_action }}" method="POST">
+            {{ id_field }}
+    		<p><label>Nombre:</label> <input type="text" name="nombre" value="{{persona_mod[1]}}" /></p>
+    		<p><label>Edad:</label> <input type="text" name="edad" value="{{persona_mod[2]}}" /></p>
+    		<p><label>Email:</label> <input type="text" name="email" value="{{persona_mod[3]}}" /></p>
+    		<p><label>Pais:</label> <input type="text" name="pais" value="{{persona_mod[4]}}" /></p>
+    		<p><input type="submit" value="Guardar" /></p>
+    	</form>
+
+    	{{x}}
+		
+		{% for persona in personas %}
+		<article>
+            <p class="nombre" >{{persona.nombre}}</p>
+            <p class="edad" >{{persona.edad}} años</p>
+            <p class="email" >{{persona.email}}</p>
+            <p class="pais" >{{persona.pais}}</p>      
+            <p><a href="index/{{persona.id}}">modificar</a></p>                  
+            <p><a href="eliminar/{{persona.id}}">eliminar</a></p>                  
+        </article>
+		{%endfor%}       
+		
+
+    </section>
+</body>
+<footer>
+	<p>Tutorial con CherryPy, CSS y HTML5.</p>
+</footer>
+</html>
