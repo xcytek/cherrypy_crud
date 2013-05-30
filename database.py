@@ -40,7 +40,7 @@ def get_persona(id):
 def insert_person(persona):
 	c = cherrypy.thread_data.db.cursor() 
 	fields = "(nombre, edad, email, pais)"
-	values = " values ('"+persona[0]+"', "+persona[1]+", '"+persona[2]+"', '"+persona[3]+"')"
+	values = " values ('%s', %s, '%s', '%s')" % (persona[0], persona[1], persona[2], persona[3])
 	query = "insert into tb_personas "+fields+ values
 	c.execute(query) 
 	cherrypy.thread_data.db.commit()
